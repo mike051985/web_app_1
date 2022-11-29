@@ -10,6 +10,8 @@ export default class ListTemplate implements DOMList {
 
     ul: HTMLUListElement
 
+    static instance: ListTemplate = new ListTemplate()
+
     private constructor() {
         this.ul = document.getElementById("listItems") as HTMLUListElement
     }
@@ -51,6 +53,8 @@ export default class ListTemplate implements DOMList {
                 FullList.removeItem(item.id)
                 this.render(FullList)
             })
+
+            this.ul.append(li)
         })
     }
 }
